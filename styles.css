@@ -24,18 +24,8 @@ header {
     position: relative;
 }
 
-/* Botón de menú en móviles */
-#menu-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
-}
-
-/* Estilo del menú en móviles */
-nav ul {
+/* Menú oculto por defecto */
+#nav-menu {
     display: none;
     flex-direction: column;
     background: #333;
@@ -48,23 +38,18 @@ nav ul {
 }
 
 /* Mostrar menú cuando está activo */
-nav ul.active {
+#nav-menu.active {
     display: flex;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 10px 0;
-}
-
-nav ul li a {
+/* Estilos del botón del menú */
+#menu-toggle {
+    background: none;
+    border: none;
     color: white;
-    text-decoration: none;
-    font-size: 18px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
 }
 
 /* Mostrar botón de menú solo en pantallas pequeñas */
@@ -75,7 +60,7 @@ nav ul li a {
 }
 
 /* ============================
-   📌 LÍNEA DE TIEMPO (EXPERIENCIA)
+   LÍNEA DE TIEMPO (EXPERIENCIA)
    ============================ */
 .timeline {
     position: relative;
