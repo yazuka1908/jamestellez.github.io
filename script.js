@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             body.insertAdjacentHTML("afterbegin", data);
+            inicializarEventos(); // Llamar función después de cargar el header
         })
         .catch(error => console.error(error));
 
@@ -46,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 menuToggle.addEventListener("click", function () {
                     navMenu.classList.toggle("active");
                 });
+            } else {
+                console.error("menuToggle o navMenu no se encontraron en el DOM.");
             }
             
             const observer = new IntersectionObserver(entries => {
