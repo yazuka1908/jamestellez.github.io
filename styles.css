@@ -20,53 +20,23 @@ body {
 header {
     background: #333;
     color: white;
-    padding: 20px;
-    position: relative;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Botón de menú en móviles */
-#menu-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: block;
-    transition: transform 0.3s ease;
+/* ✅ Menú en desktop (siempre visible) */
+nav {
+    display: flex;
 }
 
-#menu-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* Menú oculto por defecto */
-#nav-menu {
-    max-height: 0;
-    overflow: hidden;
-    background: #333;
-    padding: 0;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    transition: max-height 0.5s ease-in-out;
-}
-
-/* Mostrar menú con animación */
-#nav-menu.active {
-    max-height: 300px; /* Ajusta según la cantidad de elementos */
-    padding: 10px;
-}
-
-/* Estilos de los enlaces del menú */
 nav ul {
     list-style: none;
     padding: 0;
-}
-
-nav ul li {
-    margin: 10px 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li a {
@@ -75,10 +45,53 @@ nav ul li a {
     font-size: 18px;
 }
 
-/* Mostrar el menú en móviles */
-@media (min-width: 769px) {
+/* ✅ Menú en móviles: Oculto por defecto */
+#nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* ✅ Cuando el menú está activo en mobile */
+#nav-menu.active {
+    display: flex;
+}
+
+/* ✅ Botón de menú */
+#menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Se oculta en desktop */
+}
+
+/* ✅ Modo responsive: Menú colapsable en móviles */
+@media (max-width: 768px) {
     #menu-toggle {
-        display: none;
+        display: block; /* Se muestra en móviles */
+    }
+
+    nav ul {
+        display: none; /* Oculta el menú en móviles */
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px;
+    }
+
+    nav ul.active {
+        display: flex; /* Muestra el menú cuando está activo */
     }
 }
 
