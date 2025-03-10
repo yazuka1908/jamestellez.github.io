@@ -1,3 +1,6 @@
+/* ============================
+   GENERAL & TEMA OSCURO 
+   ============================ */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,25 +8,47 @@ body {
     margin: 0;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+
+/* ============================
+   HEADER Y MENÚ RESPONSIVO
+   ============================ */
 header {
     background: #333;
     color: white;
     padding: 20px;
+    position: relative;
 }
+
+/* Botón de menú en móviles */
+#menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
 /* Estilo del menú en móviles */
-nav {
+nav ul {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    padding: 10px;
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
-    background: #333;
-    display: none;
-    flex-direction: column;
     text-align: center;
-    padding: 10px;
 }
 
-nav.active {
+/* Mostrar menú cuando está activo */
+nav ul.active {
     display: flex;
 }
 
@@ -42,22 +67,25 @@ nav ul li a {
     font-size: 18px;
 }
 
-.dark-mode {
-    background-color: #222;
-    color: #fff;
+/* Mostrar botón de menú solo en pantallas pequeñas */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+    }
 }
 
-
-/* INICIO - (ESTILO EXPERIENCIAS) ----------------------------------*/
-
-/* LINEA TIEMPO */
+/* ============================
+   📌 LÍNEA DE TIEMPO (EXPERIENCIA)
+   ============================ */
 .timeline {
     position: relative;
     max-width: 800px;
     margin: 50px auto;
-    opacity: 0;    
 }
+
+/* Estilo de cada elemento de la línea de tiempo */
 .timeline-item {
+    display: block;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -66,38 +94,53 @@ nav ul li a {
     border-left: 4px solid #333;
     margin-bottom: 20px;
 }
+
+/* Se vuelve visible cuando se hace scroll */
 .timeline-item.visible {
     opacity: 1;
     transform: translateY(0);
 }
-/* FINAL  - (ESTILO EXPERIENCIAS) ----------------------------------*/
 
-/* INICIO - (ESTILO FORMULARIO CONTACTO) ----------------------------------*/
+/* ============================
+   FORMULARIO DE CONTACTO
+   ============================ */
 form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
     margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 input, textarea {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
+
+/* Estilo del botón */
 button {
     background: #333;
     color: white;
     padding: 10px;
     cursor: pointer;
-}
-button:hover {
-    background: #555;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+button:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+
+/* Mensaje de éxito */
 .success-message {
     color: green;
     font-weight: bold;
     animation: fadeIn 0.5s ease-in-out;
 }
-/* FINAL  - (ESTILO FORMULARIO CONTACTO) ----------------------------------*/
-
