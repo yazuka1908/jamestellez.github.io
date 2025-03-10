@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const body = document.body;
-    const themeToggle = document.getElementById("theme-toggle");
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.querySelector("nav ul");
-    const timelineItems = document.querySelectorAll(".timeline-item");
-
+    
     // Cargar el Header
     fetch("header.html")
         .then(response => {
@@ -30,25 +26,38 @@ document.addEventListener("DOMContentLoaded", function () {
             body.insertAdjacentHTML("beforeend", data);
         })
         .catch(error => console.error(error));
-    
-    themeToggle.addEventListener("click", function () {
-        body.classList.toggle("dark-mode");
-    });
 
-    menuToggle.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
+    function inicializarEventos() {
+        // Esperar a que los elementos existan en el DOM
+        const themeToggle = document.getElementById("theme-toggle");
+        const menuToggle = document.getElementById("menu-toggle");
+        const navMenu = document.querySelector("nav ul");
+        const timelineItems = document.querySelectorAll(".timeline-item");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.2 });
+        if (themeToggle) {
+            themeToggle.addEventListener("click", function () {
+                document.body.classList.toggle("dark-mode");
+            });
+        }
 
-    timelineItems.forEach(item => {
-        observer.observe(item);
-    });
-    
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener("click", function () {
+                navMenu.classList.toggle("active");
+            });
+        }
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        if (observer) {
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+    }
 });
