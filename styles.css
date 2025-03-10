@@ -49,13 +49,13 @@ header {
     color: white;
     font-size: 24px;
     cursor: pointer;
-    display: none;
+    display: block;
 }
 
 /* Mostrar botón de menú solo en pantallas pequeñas */
 @media (max-width: 768px) {
     #menu-toggle {
-        display: block;
+        display: none;
     }
 }
 
