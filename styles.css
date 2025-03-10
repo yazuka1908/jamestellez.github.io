@@ -1,5 +1,5 @@
 /* ============================
-   GENERAL & TEMA OSCURO 
+   🌙 GENERAL & TEMA OSCURO 
    ============================ */
 body {
     font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@ body {
 }
 
 /* ============================
-   HEADER Y MENÚ RESPONSIVO
+   🔝 HEADER Y MENÚ RESPONSIVO
    ============================ */
 header {
     background: #333;
@@ -24,25 +24,7 @@ header {
     position: relative;
 }
 
-/* Menú oculto por defecto */
-#nav-menu {
-    display: none;
-    flex-direction: column;
-    background: #333;
-    padding: 10px;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-/* Mostrar menú cuando está activo */
-#nav-menu.active {
-    display: flex;
-}
-
-/* Estilos del botón del menú */
+/* Botón de menú en móviles */
 #menu-toggle {
     background: none;
     border: none;
@@ -50,17 +32,58 @@ header {
     font-size: 24px;
     cursor: pointer;
     display: block;
+    transition: transform 0.3s ease;
 }
 
-/* Mostrar botón de menú solo en pantallas pequeñas */
-@media (max-width: 768px) {
+#menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Menú oculto por defecto */
+#nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    background: #333;
+    padding: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Mostrar menú con animación */
+#nav-menu.active {
+    max-height: 300px; /* Ajusta según la cantidad de elementos */
+    padding: 10px;
+}
+
+/* Estilos de los enlaces del menú */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Mostrar el menú en móviles */
+@media (min-width: 769px) {
     #menu-toggle {
         display: none;
     }
 }
 
 /* ============================
-   LÍNEA DE TIEMPO (EXPERIENCIA)
+   📌 LÍNEA DE TIEMPO (EXPERIENCIA)
    ============================ */
 .timeline {
     position: relative;
@@ -70,7 +93,8 @@ header {
 
 /* Estilo de cada elemento de la línea de tiempo */
 .timeline-item {
-    display: block;
+    display: flex;
+    align-items: center;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -78,6 +102,18 @@ header {
     padding: 15px;
     border-left: 4px solid #333;
     margin-bottom: 20px;
+    position: relative;
+}
+
+/* Punto de la línea de tiempo */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
 }
 
 /* Se vuelve visible cuando se hace scroll */
@@ -87,7 +123,7 @@ header {
 }
 
 /* ============================
-   FORMULARIO DE CONTACTO
+   📩 FORMULARIO DE CONTACTO
    ============================ */
 form {
     display: flex;
@@ -97,7 +133,7 @@ form {
     padding: 20px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más moderna */
 }
 
 input, textarea {
