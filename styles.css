@@ -24,6 +24,29 @@ nav ul.active {
 }
 
 
+/* INICIO - (ESTILO EXPERIENCIAS) ----------------------------------*/
+
+/* LINEA TIEMPO */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+}
+.timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    background: #f4f4f4;
+    padding: 15px;
+    border-left: 4px solid #333;
+    margin-bottom: 20px;
+}
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* FINAL  - (ESTILO EXPERIENCIAS) ----------------------------------*/
+
 /* INICIO - (ESTILO FORMULARIO CONTACTO) ----------------------------------*/
 form {
     display: flex;
@@ -51,13 +74,5 @@ button:hover {
     font-weight: bold;
     animation: fadeIn 0.5s ease-in-out;
 }
-.timeline-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 /* FINAL  - (ESTILO FORMULARIO CONTACTO) ----------------------------------*/
+
