@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const navMenu = document.querySelector("nav ul");
             const timelineItems = document.querySelectorAll(".timeline-item");
             const contactForm = document.getElementById("contact-form");
+
+            console.log(document.getElementById("menu-toggle"));
+            console.log(document.querySelector("nav ul"));
     
             if (themeToggle) {
                 themeToggle.addEventListener("click", function () {
