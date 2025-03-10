@@ -1,1 +1,24 @@
-
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+}
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+nav ul {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    text-align: center;
+}
+nav ul.active {
+    display: flex;
+}
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
