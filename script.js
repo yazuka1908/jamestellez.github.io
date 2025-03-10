@@ -1,10 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-toggle");
     const body = document.body;
+    const themeToggle = document.getElementById("theme-toggle");
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.querySelector("nav ul");
     const timelineItems = document.querySelectorAll(".timeline-item");
 
+    // Cargar el Header
+    fetch("header.html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al cargar header.html");
+            }
+            return response.text();
+        })
+        .then(data => {
+            body.insertAdjacentHTML("afterbegin", data);
+        })
+        .catch(error => console.error(error));
+
+    // Cargar el Footer
+    fetch("footer.html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al cargar footer.html");
+            }
+            return response.text();
+        })
+        .then(data => {
+            body.insertAdjacentHTML("beforeend", data);
+        })
+        .catch(error => console.error(error));
+    
     themeToggle.addEventListener("click", function () {
         body.classList.toggle("dark-mode");
     });
@@ -25,16 +51,4 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(item);
     });
     
-    // Cargar Header y Footer dinámicamente en cada página
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML("afterbegin", data);
-        });
-
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML("beforeend", data);
-        });
 });
