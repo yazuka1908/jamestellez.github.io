@@ -26,61 +26,35 @@ header {
     align-items: center;
 }
 
-/* ✅ Menú en desktop (siempre visible) */
-nav {
-    display: flex;
-}
-
+/* ✅ Menú SIEMPRE VISIBLE en escritorio */
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: flex; /* 🔹 El menú siempre es visible en desktop */
     gap: 20px;
+}
+
+nav ul li {
+    display: inline;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
 }
 
 /* ✅ Menú en móviles: Oculto por defecto */
-#nav-menu {
-    display: none;
-    flex-direction: column;
-    background: #333;
-    padding: 10px;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-/* ✅ Cuando el menú está activo en mobile */
-#nav-menu.active {
-    display: flex;
-}
-
-/* ✅ Botón de menú */
-#menu-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: none; /* Se oculta en desktop */
-}
-
-/* ✅ Modo responsive: Menú colapsable en móviles */
 @media (max-width: 768px) {
-    #menu-toggle {
-        display: block; /* Se muestra en móviles */
-    }
-
     nav ul {
-        display: none; /* Oculta el menú en móviles */
+        display: none; /* 🔹 Ocultar el menú en móviles */
         flex-direction: column;
         width: 100%;
         background: #333;
@@ -91,7 +65,24 @@ nav ul li a {
     }
 
     nav ul.active {
-        display: flex; /* Muestra el menú cuando está activo */
+        display: flex; /* 🔹 Mostrar el menú cuando se activa */
+    }
+}
+
+/* ✅ Botón de menú en móviles */
+#menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* 🔹 Se oculta en desktop */
+}
+
+/* ✅ Mostrar el botón del menú solo en móviles */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
     }
 }
 
@@ -154,6 +145,7 @@ input, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 /* Estilo del botón */
@@ -177,4 +169,15 @@ button:hover {
     color: green;
     font-weight: bold;
     animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ============================
+   🔚 FOOTER 
+   ============================ */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
 }
