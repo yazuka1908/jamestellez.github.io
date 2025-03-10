@@ -11,4 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function () {
         navMenu.classList.toggle("active");
     });
+
+    // Cargar Header y Footer dinámicamente en cada página
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("afterbegin", data);
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("beforeend", data);
+        });
 });
