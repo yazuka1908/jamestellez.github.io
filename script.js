@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const body = document.body;
-    emailjs.init("james.tellez1908@gmail.com"); // Reemplaza con tu User ID de EmailJS
+    emailjs.init("5c-NA0Fkf6exJb-UF"); // Reemplaza con tu User ID de EmailJS
     
     // Cargar el Header
     fetch("header.html")
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (themeToggle) {
                 themeToggle.addEventListener("click", function () {
                     document.body.classList.toggle("dark-mode");
+                    document.body.style.transition = "background-color 0.5s ease, color 0.5s ease";
                 });
             }
     
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     observer.observe(item);
                 });
             }
+            
             if (contactForm) {
                 contactForm.addEventListener("submit", function (event) {
                     event.preventDefault();
@@ -73,22 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     //emailjs.sendForm("TU_SERVICE_ID", "TU_TEMPLATE_ID", contactForm)
                     emailjs.sendForm("service_pjov5ma", "template_83ygfoz", contactForm)
                         .then(function () {
-                            document.getElementById("form-message").textContent = "¡Mensaje enviado con éxito!";
+                            const formMessage = document.getElementById("form-message");
+                            if (formMessage) {
+                                formMessage.textContent = "¡Mensaje enviado con éxito!";
+                            }                            
                             contactForm.reset();
                         }, function (error) {
-                            document.getElementById("form-message").textContent = "Error al enviar el mensaje.";
+                            const formMessage = document.getElementById("form-message");
+                            if (formMessage) {
+                                formMessage.textContent = "Error al enviar el mensaje.";
+                            }
                         });
                 });
             }    
                                      
         }, 100); // Pequeño retraso para asegurarse de que el header cargó
     }
-
-    function toggleTheme() {
-        document.body.classList.toggle("dark-mode");
-        document.body.style.transition = "background-color 0.5s ease, color 0.5s ease";
-    }
-    
-    document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
     
 });
